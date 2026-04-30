@@ -28,15 +28,13 @@
       box-sizing: border-box;
       -webkit-tap-highlight-color: transparent;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      /* 🔒 Bloquear selección de texto y menú contextual en todos los elementos */
       -webkit-user-select: none;
       -moz-user-select: none;
       -ms-user-select: none;
       user-select: none;
-      -webkit-touch-callout: none; /* Evita menú de iOS al mantener presionado */
+      -webkit-touch-callout: none;
     }
 
-    /* Permitir selección solo en campos de entrada */
     input, textarea {
       -webkit-user-select: text;
       -moz-user-select: text;
@@ -59,7 +57,6 @@
       min-height: 100vh;
       min-height: 100dvh;
       background: #000;
-      /* Bloqueo adicional en body */
       -webkit-user-select: none;
       -moz-user-select: none;
       -ms-user-select: none;
@@ -108,7 +105,7 @@
       transform: scale(0.3) translateY(50px);
       transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
       -webkit-touch-callout: none;
-      pointer-events: none; /* Evita interacción con la imagen del splash */
+      pointer-events: none;
     }
 
     #splash-screen.active img {
@@ -171,7 +168,7 @@
       height: 20px;
       fill: white; 
       opacity: 0.95; 
-      pointer-events: none; /* Evita menú contextual en íconos SVG */
+      pointer-events: none;
     }
 
     /* Greeting */
@@ -219,7 +216,7 @@
       padding: 24px 10px 6px 10px;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 10px 6px;
+      gap: 14px 6px;  /* 🔼 Aumentada la separación vertical de 10px a 14px */
       flex-shrink: 0;
     }
     .grid-item {
@@ -227,19 +224,22 @@
       gap: 5px; cursor: pointer; position: relative;
     }
     .tile {
-      width: 54px; height: 54px;
+      width: 60px;   /* 🔼 Más grandes: antes 54px */
+      height: 60px;  /* 🔼 Más grandes: antes 54px */
       background: white; border-radius: 12px;
       display: flex; align-items: center; justify-content: center;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       position: relative; overflow: hidden; padding: 8px; flex-shrink: 0;
     }
     .tile img { 
-      width: 40px; height: 40px;
+      width: 44px;   /* 🔼 Proporcional al nuevo tamaño: antes 40px */
+      height: 44px;
       object-fit: contain;
-      pointer-events: none; /* 🔒 Evita arrastrar/guardar imagen del grid */
+      pointer-events: none;
     }
     .tile-large img { 
-      width: 50px; height: 50px;
+      width: 54px;   /* 🔼 Proporcional: antes 50px */
+      height: 54px;
       pointer-events: none;
     }
     .label {
@@ -294,7 +294,7 @@
       object-fit: contain;
       border-radius: 10px;
       display: block;
-      pointer-events: none; /* 🔒 Evita interacción con imágenes del carrusel */
+      pointer-events: none;
     }
     .carousel-dots {
       display: flex;
@@ -621,7 +621,7 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      pointer-events: none; /* 🔒 Evita interacción con la imagen del comprobante */
+      pointer-events: none;
     }
     
     @keyframes receiptAppear {
@@ -794,9 +794,9 @@
       body { transform: rotate(90deg); transform-origin: left top; width: 100vh; height: 100vw; position: fixed; top: 0; left: 100%; }
     }
     @media screen and (max-width: 360px) {
-      .grid-section { gap: 6px 5px; padding: 10px 12px; }
-      .tile { width: 56px; height: 56px; }
-      .tile img { width: 36px; height: 36px; }
+      .grid-section { gap: 12px 5px; }
+      .tile { width: 62px; height: 62px; }
+      .tile img { width: 40px; height: 40px; }
       .label { font-size: 11px; }
       .carousel-section { margin: 8px 12px 8px 4px; }
       .carousel-slide { min-width: calc(100% - 80px); margin-right: 12px; }
@@ -930,7 +930,7 @@
         <div class="modal-content-saldo">
           <div class="modal-title-saldo">Editar saldo</div>
           <div class="input-wrapper-saldo">
-            <span class="currency-symbol-modal">S/</span>
+            <span class="currency-symbol-modal"> </span>
             <input type="text" class="amount-input-modal" id="amountInputModal" placeholder="0.00" inputmode="decimal">
           </div>
           <div class="modal-buttons-saldo">
@@ -961,7 +961,7 @@
         </div>
         <div>
           <svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
-          <strong>Instagram:</strong> pak4sx7
+          <strong>Instagram:</strong> @pak4sx7
         </div>
       </div>
       <button class="credits-btn" onclick="closeCreditsModal()">Aceptar</button>
