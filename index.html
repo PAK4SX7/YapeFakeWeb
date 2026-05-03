@@ -557,7 +557,7 @@
             text-overflow: ellipsis;
         }
         .grid-section {
-            padding: 24px 10px 6px 10px;
+            padding: clamp(12px, 5vw, 24px) 10px 6px 10px;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 14px 6px;
@@ -635,7 +635,7 @@
             z-index: 2;
         }
         .carousel-section {
-            margin: 36px 10px 8px 8px;
+            margin: clamp(10px, 4vw, 36px) 10px 8px 8px;
             background: transparent;
             border-radius: 12px;
             padding: 0;
@@ -681,8 +681,8 @@
             width: 100%;
             max-width: 100%;
             height: auto;
-            max-height: 140px;
-            object-fit: contain;
+            max-height: clamp(140px, 28vw, 200px);
+            object-fit: cover;
             border-radius: 10px;
             display: block;
             pointer-events: none;
@@ -711,8 +711,8 @@
             margin-top: auto;
             border-top-left-radius: 32px;
             border-top-right-radius: 32px;
-            padding: 12px 12px calc(16px + env(safe-area-inset-bottom));
-            min-height: 180px;
+            padding: 16px 12px calc(20px + env(safe-area-inset-bottom));
+            min-height: clamp(210px, 38vh, 260px);
             width: 100%;
             max-width: 430px;
             flex-shrink: 0;
@@ -758,7 +758,7 @@
         }
         .balance-label,
         .transactions-label {
-            font-size: 16px;
+            font-size: clamp(14px, 4vw, 16px);
             color: #641974;
             font-weight: 500;
         }
@@ -785,13 +785,13 @@
         }
         .btn {
             flex: 1;
-            height: 60px;
+            height: clamp(58px, 14vw, 68px);
             border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            font-size: 18px;
+            font-size: clamp(15px, 4vw, 18px);
             font-weight: 600;
             cursor: pointer;
             transition: all 0.2s;
