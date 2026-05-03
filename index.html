@@ -471,10 +471,10 @@
         }
         .app-container {
             width: 100%;
-            max-width: min(430px, 100vw);
+            max-width: 430px;
             background: #790699;
+            height: 100vh;
             height: 100dvh;
-            min-height: 100svh;
             position: relative;
             padding-bottom: 0;
             overflow-x: hidden;
@@ -557,10 +557,10 @@
             text-overflow: ellipsis;
         }
         .grid-section {
-            padding: clamp(18px, 3.6vh, 26px) 10px 4px 10px;
+            padding: 24px 10px 6px 10px;
             display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: clamp(10px, 1.8vw, 14px) clamp(6px, 1.2vw, 8px);
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px 6px;
             flex-shrink: 0;
         }
         .grid-item {
@@ -587,8 +587,8 @@
             }
         }
         .tile {
-            width: clamp(58px, 14vw, 66px);
-            height: clamp(58px, 14vw, 66px);
+            width: 60px;
+            height: 60px;
             background: white;
             border-radius: 12px;
             display: flex;
@@ -601,14 +601,14 @@
             flex-shrink: 0;
         }
         .tile img {
-            width: clamp(38px, 9vw, 46px);
-            height: clamp(38px, 9vw, 46px);
+            width: 44px;
+            height: 44px;
             object-fit: contain;
             pointer-events: none;
         }
         .tile-large img {
-            width: clamp(46px, 11vw, 56px);
-            height: clamp(46px, 11vw, 56px);
+            width: 54px;
+            height: 54px;
             pointer-events: none;
         }
         .label {
@@ -635,7 +635,7 @@
             z-index: 2;
         }
         .carousel-section {
-            margin: clamp(18px, 3vh, 28px) 10px 6px 8px;
+            margin: 36px 10px 8px 8px;
             background: transparent;
             border-radius: 12px;
             padding: 0;
@@ -668,20 +668,20 @@
             padding-left: 4px;
         }
         .carousel-slide {
-            min-width: calc(100% - 20px);
+            min-width: calc(100% - 30px);
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: flex-start;
             background: transparent;
-            margin-right: 8px;
+            margin-right: 6px;
             flex-shrink: 0;
         }
         .carousel-slide img {
             width: 100%;
             max-width: 100%;
             height: auto;
-            max-height: clamp(145px, 22vh, 185px);
+            max-height: 140px;
             object-fit: contain;
             border-radius: 10px;
             display: block;
@@ -708,11 +708,11 @@
         }
         .bottom-panel {
             background: #F5F5F7;
-            margin-top: 8px;
+            margin-top: auto;
             border-top-left-radius: 32px;
             border-top-right-radius: 32px;
-            padding: 14px 12px calc(18px + env(safe-area-inset-bottom));
-            min-height: clamp(210px, 30vh, 290px);
+            padding: 12px 12px calc(16px + env(safe-area-inset-bottom));
+            min-height: 180px;
             width: 100%;
             max-width: 430px;
             flex-shrink: 0;
@@ -736,7 +736,7 @@
         .transactions-card {
             background: white;
             border-radius: 12px;
-            padding: 16px;
+            padding: 14px;
             margin-bottom: 10px;
             display: flex;
             align-items: center;
@@ -749,21 +749,21 @@
         .transactions-left {
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 12px;
         }
         .balance-icon {
-            width: 28px;
-            height: 28px;
+            width: 26px;
+            height: 26px;
             fill: #790699;
         }
         .balance-label,
         .transactions-label {
-            font-size: 17px;
+            font-size: 16px;
             color: #641974;
             font-weight: 500;
         }
         .balance-value {
-            font-size: 19px;
+            font-size: 18px;
             font-weight: 700;
             color: #1E192D;
         }
@@ -781,11 +781,11 @@
         .action-buttons {
             display: flex;
             gap: 14px;
-            margin-top: 10px;
+            margin-top: 8px;
         }
         .btn {
             flex: 1;
-            height: 64px;
+            height: 60px;
             border-radius: 14px;
             display: flex;
             align-items: center;
@@ -1496,34 +1496,6 @@
                 margin-right: 12px;
             }
         }
-
-        @media screen and (max-width: 380px) {
-            .grid-section {
-                padding-top: 16px;
-                gap: 10px 5px;
-            }
-            .carousel-section {
-                margin-top: 18px;
-            }
-            .carousel-slide {
-                min-width: calc(100% - 14px);
-            }
-            .carousel-slide img {
-                max-height: 150px;
-            }
-            .bottom-panel {
-                min-height: 220px;
-                padding-top: 13px;
-            }
-            .balance-card,
-            .transactions-card {
-                padding: 14px;
-            }
-            .btn {
-                height: 60px;
-                font-size: 17px;
-            }
-        }
         @media screen and (min-width: 500px) {
             #pin-screen .keypad {
                 gap: 18px;
@@ -1543,27 +1515,7 @@
                 width: 16px;
                 height: 16px;
             }
-            .carousel-slide img {
-                max-height: 190px;
-            }
-            .bottom-panel {
-                min-height: 250px;
-            }
         }
-        @media screen and (max-height: 700px) {
-            .grid-section {
-                padding-top: 16px;
-                padding-bottom: 2px;
-            }
-            .carousel-section {
-                margin-top: 14px;
-            }
-            .bottom-panel {
-                min-height: 200px;
-                padding-top: 12px;
-            }
-        }
-
         @media screen and (max-height: 600px) {
             #pin-screen {
                 padding-top: 20px;
