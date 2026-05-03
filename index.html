@@ -471,10 +471,10 @@
         }
         .app-container {
             width: 100%;
-            max-width: 430px;
+            max-width: min(430px, 100vw);
             background: #790699;
-            height: 100vh;
             height: 100dvh;
+            min-height: 100svh;
             position: relative;
             padding-bottom: 0;
             overflow-x: hidden;
@@ -483,10 +483,10 @@
             flex-direction: column;
         }
         .top-bar {
-            padding: calc(clamp(8px, 2vh, 14px) + env(safe-area-inset-top)) clamp(8px, 3vw, 12px) 0px;
+            padding: calc(14px + env(safe-area-inset-top)) 12px 0px;
             display: flex;
             align-items: center;
-            gap: clamp(8px, 2.5vw, 12px);
+            gap: 12px;
             position: sticky;
             top: 0;
             z-index: 10;
@@ -494,8 +494,8 @@
             flex-shrink: 0;
         }
         .icon-btn {
-            width: clamp(30px, 8vw, 36px);
-            height: clamp(30px, 8vw, 36px);
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.15);
             display: flex;
@@ -510,8 +510,8 @@
             background: rgba(255, 255, 255, 0.25);
         }
         .icon-btn svg {
-            width: clamp(16px, 4.5vw, 20px);
-            height: clamp(16px, 4.5vw, 20px);
+            width: 20px;
+            height: 20px;
             fill: white;
             opacity: 0.95;
             pointer-events: none;
@@ -519,10 +519,10 @@
         .greeting-container {
             display: flex;
             align-items: center;
-            gap: clamp(8px, 2.5vw, 12px);
+            gap: 12px;
             flex: 1;
             cursor: pointer;
-            padding: 2px clamp(6px, 2vw, 12px);
+            padding: 2px 12px;
             border-radius: 12px;
             transition: background 0.2s;
             min-width: 0;
@@ -531,8 +531,8 @@
             background: rgba(255, 255, 255, 0.1);
         }
         .greeting-icon {
-            width: clamp(30px, 8vw, 36px);
-            height: clamp(30px, 8vw, 36px);
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.15);
             display: flex;
@@ -541,35 +541,33 @@
             flex-shrink: 0;
         }
         .greeting-icon svg {
-            width: clamp(18px, 5vw, 24px);
-            height: clamp(18px, 5vw, 24px);
+            width: 24px;
+            height: 24px;
             fill: white;
             opacity: 0.9;
             pointer-events: none;
         }
         .greeting-text {
             color: white;
-            font-size: clamp(16px, 5vw, 22px);
+            font-size: 22px;
             font-weight: 700;
             opacity: 0.95;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
-
-        /* ========== GRID RESPONSIVE ========== */
         .grid-section {
-            padding: clamp(10px, 2.5vh, 24px) clamp(6px, 2vw, 10px) clamp(4px, 1vh, 6px) clamp(6px, 2vw, 10px);
+            padding: clamp(18px, 3.6vh, 26px) 10px 4px 10px;
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: clamp(8px, 2vw, 14px) clamp(4px, 1.5vw, 6px);
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: clamp(10px, 1.8vw, 14px) clamp(6px, 1.2vw, 8px);
             flex-shrink: 0;
         }
         .grid-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: clamp(3px, 1vw, 5px);
+            gap: 5px;
             cursor: pointer;
             position: relative;
             opacity: 0;
@@ -589,33 +587,33 @@
             }
         }
         .tile {
-            width: clamp(52px, 15vw, 68px);
-            height: clamp(52px, 15vw, 68px);
+            width: clamp(58px, 14vw, 66px);
+            height: clamp(58px, 14vw, 66px);
             background: white;
-            border-radius: clamp(10px, 2.5vw, 14px);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
-            padding: clamp(5px, 1.5vw, 8px);
+            padding: 8px;
             flex-shrink: 0;
         }
         .tile img {
-            width: clamp(34px, 10vw, 44px);
-            height: clamp(34px, 10vw, 44px);
+            width: clamp(38px, 9vw, 46px);
+            height: clamp(38px, 9vw, 46px);
             object-fit: contain;
             pointer-events: none;
         }
         .tile-large img {
-            width: clamp(42px, 13vw, 54px);
-            height: clamp(42px, 13vw, 54px);
+            width: clamp(46px, 11vw, 56px);
+            height: clamp(46px, 11vw, 56px);
             pointer-events: none;
         }
         .label {
             color: white;
-            font-size: clamp(9px, 2.5vw, 11px);
+            font-size: 11px;
             text-align: center;
             line-height: 1.2;
             font-weight: 600;
@@ -636,20 +634,12 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
             z-index: 2;
         }
-
-        /* ========== CAROUSEL RESPONSIVE ========== */
-        /* =================================================================
-           CARRUSEL DE ANUNCIOS — AJUSTES MANUALES
-           Modifica los valores marcados con <-- para cambiar el tamaño.
-           ================================================================= */
         .carousel-section {
-            /* Espacio alrededor del carrusel (arriba, derecha, abajo, izquierda) */
-            margin: clamp(6px, 1.5vh, 12px) clamp(6px, 2vw, 10px) clamp(8px, 2vh, 14px) clamp(4px, 1.5vw, 8px);
+            margin: clamp(18px, 3vh, 28px) 10px 6px 8px;
             background: transparent;
             border-radius: 12px;
             padding: 0;
-            flex-shrink: 1;        /* 1 = se encoge si no hay espacio | 0 = tamaño fijo */
-            min-height: 0;
+            flex-shrink: 0;
             opacity: 0;
             transform: translateX(30px);
         }
@@ -678,26 +668,22 @@
             padding-left: 4px;
         }
         .carousel-slide {
-            min-width: calc(100% - 30px);
+            min-width: calc(100% - 20px);
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: flex-start;
             background: transparent;
-            margin-right: 8px;  /* aumentado de 6px a 10px para más separación */
+            margin-right: 8px;
             flex-shrink: 0;
         }
-        /* -----------------------------------------------------------------
-           TAMAÑO DE LAS IMÁGENES DEL CARRUSEL
-           Se redujo un poco el tamaño máximo.
-           ----------------------------------------------------------------- */
         .carousel-slide img {
             width: 100%;
             max-width: 100%;
             height: auto;
-            max-height: clamp(100px, 38vw, 160px); /* antes clamp(120px,40vw,180px) */
+            max-height: clamp(145px, 22vh, 185px);
             object-fit: contain;
-            border-radius: 12px;
+            border-radius: 10px;
             display: block;
             pointer-events: none;
         }
@@ -705,7 +691,7 @@
             display: flex;
             justify-content: center;
             gap: 5px;
-            margin-top: clamp(6px, 1.5vh, 8px);
+            margin-top: 6px;
         }
         .carousel-dots .dot-nav {
             width: 5px;
@@ -720,15 +706,13 @@
             border-radius: 3px;
             background: white;
         }
-
-        /* ========== BOTTOM PANEL RESPONSIVE ========== */
         .bottom-panel {
             background: #F5F5F7;
-            margin-top: auto;
-            border-top-left-radius: clamp(20px, 6vw, 32px);
-            border-top-right-radius: clamp(20px, 6vw, 32px);
-            padding: clamp(12px, 3vh, 18px) clamp(8px, 3vw, 12px) calc(clamp(10px, 2.5vh, 16px) + env(safe-area-inset-bottom));
-            min-height: 0;
+            margin-top: 8px;
+            border-top-left-radius: 32px;
+            border-top-right-radius: 32px;
+            padding: 14px 12px calc(18px + env(safe-area-inset-bottom));
+            min-height: clamp(210px, 30vh, 290px);
             width: 100%;
             max-width: 430px;
             flex-shrink: 0;
@@ -751,9 +735,9 @@
         .balance-card,
         .transactions-card {
             background: white;
-            border-radius: clamp(10px, 2.5vw, 12px);
-            padding: clamp(14px, 3vw, 18px);
-            margin-bottom: clamp(6px, 1.5vw, 10px);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -765,49 +749,49 @@
         .transactions-left {
             display: flex;
             align-items: center;
-            gap: clamp(10px, 2.5vw, 14px);
+            gap: 14px;
         }
         .balance-icon {
-            width: clamp(22px, 6vw, 28px);
-            height: clamp(22px, 6vw, 28px);
+            width: 28px;
+            height: 28px;
             fill: #790699;
         }
         .balance-label,
         .transactions-label {
-            font-size: clamp(15px, 4vw, 18px);
+            font-size: 17px;
             color: #641974;
             font-weight: 500;
         }
         .balance-value {
-            font-size: clamp(16px, 4.5vw, 20px);
+            font-size: 19px;
             font-weight: 700;
             color: #1E192D;
         }
         .transactions-icon {
-            width: clamp(20px, 6vw, 26px);
-            height: clamp(20px, 6vw, 26px);
+            width: 24px;
+            height: 24px;
             object-fit: contain;
             pointer-events: none;
         }
         .chevron {
-            width: clamp(20px, 6vw, 26px);
-            height: clamp(20px, 6vw, 26px);
+            width: 22px;
+            height: 22px;
             fill: #9E9E9E;
         }
         .action-buttons {
             display: flex;
-            gap: clamp(10px, 3vw, 14px);
-            margin-top: clamp(8px, 2vw, 12px);
+            gap: 14px;
+            margin-top: 10px;
         }
         .btn {
             flex: 1;
-            height: clamp(52px, 14vw, 64px);
-            border-radius: clamp(10px, 3vw, 14px);
+            height: 64px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: clamp(6px, 2vw, 10px);
-            font-size: clamp(16px, 4.5vw, 20px);
+            gap: 10px;
+            font-size: 18px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.2s;
@@ -823,8 +807,8 @@
             border: 2px solid #18B7A0;
         }
         .btn-qr svg {
-            width: clamp(20px, 6vw, 26px);
-            height: clamp(20px, 6vw, 26px);
+            width: 24px;
+            height: 24px;
             fill: #18B7A0;
         }
         .btn-yapear {
@@ -832,8 +816,8 @@
             color: white;
         }
         .btn-yapear svg {
-            width: clamp(20px, 6vw, 26px);
-            height: clamp(20px, 6vw, 26px);
+            width: 24px;
+            height: 24px;
             fill: white;
         }
         .install-btn-wrap {
@@ -1436,7 +1420,7 @@
             background: #5e0478;
         }
 
-        /* ========== RESPONSIVE BREAKPOINTS ========== */
+        /* ========== RESPONSIVE ========== */
         @media screen and (max-width: 360px) {
             #pin-screen .input-dots {
                 gap: 14px;
@@ -1490,6 +1474,55 @@
                 height: 8px;
                 top: -5px;
             }
+            .grid-section {
+                gap: 12px 5px;
+            }
+            .tile {
+                width: 62px;
+                height: 62px;
+            }
+            .tile img {
+                width: 40px;
+                height: 40px;
+            }
+            .label {
+                font-size: 11px;
+            }
+            .carousel-section {
+                margin: 8px 12px 8px 4px;
+            }
+            .carousel-slide {
+                min-width: calc(100% - 80px);
+                margin-right: 12px;
+            }
+        }
+
+        @media screen and (max-width: 380px) {
+            .grid-section {
+                padding-top: 16px;
+                gap: 10px 5px;
+            }
+            .carousel-section {
+                margin-top: 18px;
+            }
+            .carousel-slide {
+                min-width: calc(100% - 14px);
+            }
+            .carousel-slide img {
+                max-height: 150px;
+            }
+            .bottom-panel {
+                min-height: 220px;
+                padding-top: 13px;
+            }
+            .balance-card,
+            .transactions-card {
+                padding: 14px;
+            }
+            .btn {
+                height: 60px;
+                font-size: 17px;
+            }
         }
         @media screen and (min-width: 500px) {
             #pin-screen .keypad {
@@ -1510,7 +1543,27 @@
                 width: 16px;
                 height: 16px;
             }
+            .carousel-slide img {
+                max-height: 190px;
+            }
+            .bottom-panel {
+                min-height: 250px;
+            }
         }
+        @media screen and (max-height: 700px) {
+            .grid-section {
+                padding-top: 16px;
+                padding-bottom: 2px;
+            }
+            .carousel-section {
+                margin-top: 14px;
+            }
+            .bottom-panel {
+                min-height: 200px;
+                padding-top: 12px;
+            }
+        }
+
         @media screen and (max-height: 600px) {
             #pin-screen {
                 padding-top: 20px;
@@ -1535,44 +1588,25 @@
             #pin-screen .key-delete {
                 height: 46px;
             }
-            .grid-section {
-                padding: 8px 6px 4px;
-                gap: 8px 4px;
-            }
-            .tile {
-                width: 48px;
-                height: 48px;
-            }
-            .carousel-section {
-                margin: 4px 6px 4px 4px;
-            }
-            .carousel-slide img {
-                max-height: 100px; /* <-- tamaño en pantallas muy bajas (max-height: 600px) */
-            }
         }
-        @media screen and (max-height: 680px) {
+        @media screen and (min-height: 850px) {
             .grid-section {
-                padding: clamp(6px, 1.5vh, 14px) clamp(6px, 2vw, 10px) 4px;
-                gap: clamp(6px, 1.5vw, 10px) clamp(3px, 1vw, 5px);
+                padding: 16px;
             }
-            .carousel-slide img {
-                max-height: 120px; /* <-- tamaño en pantallas muy bajas (max-height: 680px) */
-            }
-            .carousel-section {
-                margin-top: clamp(4px, 1vh, 12px);
-                margin-bottom: 4px;
+            .bottom-panel {
+                margin-top: 24px;
             }
         }
         @supports (padding: max(0px)) {
             .top-bar,
             .grid-section,
             .bottom-panel {
-                padding-left: max(clamp(8px, 3vw, 16px), env(safe-area-inset-left));
-                padding-right: max(clamp(8px, 3vw, 16px), env(safe-area-inset-right));
+                padding-left: max(16px, env(safe-area-inset-left));
+                padding-right: max(16px, env(safe-area-inset-right));
             }
             .carousel-section {
-                margin-left: max(clamp(4px, 1.5vw, 8px), env(safe-area-inset-left));
-                margin-right: max(clamp(6px, 2vw, 12px), env(safe-area-inset-right));
+                margin-left: max(8px, env(safe-area-inset-left));
+                margin-right: max(12px, env(safe-area-inset-right));
             }
         }
         @media (display-mode: standalone) {
@@ -2119,7 +2153,7 @@
             currentSlide = i;
             const track = document.getElementById('carouselTrack');
             document.querySelectorAll('.carousel-dots .dot-nav').forEach((d, idx) => d.classList.toggle('active', idx === i));
-            const slide = document.querySelector('.carousel-slide'), gap = 10;  // antes 6, ahora 10 para coincidir con CSS
+            const slide = document.querySelector('.carousel-slide'), gap = 6;
             if (slide) track.style.transform = `translateX(-${i * (slide.offsetWidth + gap)}px)`;
             resetCarouselTimer();
         }
